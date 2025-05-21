@@ -6,18 +6,30 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 16:54:10 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/21 18:08:34 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/21 18:44:15 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <stdio.h>
 #include "push_swap.h"
+
+static void	check_arguments(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
+}
 
 int	main(int argc, char **argv)
 {
-	ft_printf("Number of arguments: %d\n", argc);
-	ft_printf("First argument: %s\n", argv[1]);
+	t_list	**stack_a;
+	t_list	**stack_b;
 
+	(void) stack_a;
+	(void) stack_b;
+	
+	if (argc < 2)
+		return (0);
+
+	check_arguments(argc, argv);
+	
 	exit (0);
 }
