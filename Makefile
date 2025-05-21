@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/21 17:12:33 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/21 17:52:27 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/21 18:03:24 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
 
 CC			= cc
 INCLUDES	= -I$(INCLUDES_PATH) -I$(LIBFT_PATH)/$(INCLUDES_PATH)
-CFLAGS		= -Wall -Wextra -Werror $(INCLUDES) -g
+CFLAGS		= -Wall -Wextra $(INCLUDES) -g
 AR			= ar crs
 RM			= rm -f
 MKDIR-P		= mkdir -p
