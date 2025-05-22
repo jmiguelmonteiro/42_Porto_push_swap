@@ -14,8 +14,20 @@
 
 static void	check_arguments(int argc, char **argv)
 {
-	(void) argc;
-	(void) argv;
+	char	**args;
+	int		i;
+
+	i = 0;
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	else
+	{
+		while (i < argc)
+		{
+			args[i] = ft_strdup(argv[i + 1]);
+			i++;
+		}
+	}
 }
 
 int	main(int argc, char **argv)
