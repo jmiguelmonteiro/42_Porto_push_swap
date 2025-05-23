@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 16:54:10 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 17:21:03 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:40:07 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 		ft_error();
 
 	print_stack(stack_a);
-	
+	swap(&stack_a);
+	print_stack(stack_a);
+		
 	exit (0);
 }

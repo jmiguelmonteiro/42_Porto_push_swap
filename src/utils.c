@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 16:36:42 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:41:14 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	print_stack(t_list *stack)
 {
 	t_node	*node;
 
+	ft_printf("\n");
 	while (stack)
 	{
 		node = (t_node *)stack->content;

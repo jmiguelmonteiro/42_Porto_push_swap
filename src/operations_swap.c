@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 17:23:52 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 18:39:13 by josemigu         ###   ########.fr       */
+/*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
+/*   Updated: 2025/05/23 18:39:21 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <libft.h>
-# include <stdbool.h>
-
-typedef struct s_node
+bool	swap(t_list **stack)
 {
-	int	value;
-}	t_node;
+	t_list	*head;
+	t_list	*next;
+	
+	if (ft_lstsize(*stack) < 2)
+		return (false);
 
-void	check_arguments(int argc, char **argv);
-void	ft_error(void);
-bool	init_stack(int argc, char **argv, t_list **stack_a);
-void	free_node(void *content);
-void	print_stack(t_list *stack);
+	head = *stack;
+	next = head->next;
+	
+	head->next = next->next;
+	next->next = head;
+	*stack = next;
 
-bool	swap(t_list **stack);
-
-#endif
+	return (true);
+}
