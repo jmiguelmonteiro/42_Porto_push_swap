@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 13:57:48 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:36:42 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,16 @@ void	ft_error(void)
 	write(2, "Error\n", 7);
 	exit (0);
 	
+}
+
+void	print_stack(t_list *stack)
+{
+	t_node	*node;
+
+	while (stack)
+	{
+		node = (t_node *)stack->content;
+		ft_printf("%d\n", node->value);
+		stack = stack->next;
+	}
 }

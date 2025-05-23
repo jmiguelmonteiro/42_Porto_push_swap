@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:19:35 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 14:42:08 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 17:25:24 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void check_arg_is_int(char *nptr)
 		if (*nptr == '-')
 			signal = -1;
 		nptr++;
+		if (*nptr < '0' || *nptr > '9')
+			ft_error();
 	}
 	while (*nptr)
 	{
