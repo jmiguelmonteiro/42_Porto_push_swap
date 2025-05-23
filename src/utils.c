@@ -6,7 +6,15 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/21 18:44:02 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:57:48 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	ft_error(void)
+{
+	write(2, "Error\n", 7);
+	exit (0);
+	
+}
