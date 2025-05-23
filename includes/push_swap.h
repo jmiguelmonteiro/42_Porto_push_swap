@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:23:52 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 18:39:13 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:01:09 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ bool	init_stack(int argc, char **argv, t_list **stack_a);
 void	free_node(void *content);
 void	print_stack(t_list *stack);
 
-bool	swap(t_list **stack);
+void	swap(t_list **stack);
+void	sa(t_list **stack_a, t_list **stack_b);
+void	sb(t_list **stack_a, t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -6,19 +6,19 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 18:39:21 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:01:44 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	swap(t_list **stack)
+void	swap(t_list **stack)
 {
 	t_list	*head;
 	t_list	*next;
 	
 	if (ft_lstsize(*stack) < 2)
-		return (false);
+		return ;
 
 	head = *stack;
 	next = head->next;
@@ -26,6 +26,25 @@ bool	swap(t_list **stack)
 	head->next = next->next;
 	next->next = head;
 	*stack = next;
+}
 
-	return (true);
+void	sa(t_list **stack_a, t_list **stack_b)
+{
+	(void) stack_b;
+	swap(stack_a);
+	ft_putendl_fd("sa", 1);
+}
+
+void	sb(t_list **stack_a, t_list **stack_b)
+{
+	(void) stack_a;
+	swap(stack_b);
+	ft_putendl_fd("sb", 1);
+}
+
+void	ss(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_putendl_fd("ss", 1);
 }

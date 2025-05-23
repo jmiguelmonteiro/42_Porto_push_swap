@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   operations_push_pop.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 19:04:03 by josemigu         ###   ########.fr       */
+/*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
+/*   Updated: 2025/05/23 19:12:17 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+void	*push(t_list **stack, t_node)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit (0);
-}
+	t_list	*head;
+	t_list	*next;
+	
+	if (ft_lstsize(*stack) < 2)
+		return ;
 
-void	print_stack(t_list *stack)
-{
-	t_node	*node;
-
-	while (stack)
-	{
-		node = (t_node *)stack->content;
-		ft_printf("%d\n", node->value);
-		stack = stack->next;
-	}
-	ft_printf("\n");
+	head = *stack;
+	next = head->next;
+	
+	head->next = next->next;
+	next->next = head;
+	*stack = next;
 }

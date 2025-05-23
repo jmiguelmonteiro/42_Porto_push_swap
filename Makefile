@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/21 17:12:33 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/23 18:14:24 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/23 19:09:28 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ BUILD_PATH		= build
 # Sources
 SRCS = $(addprefix $(SRC_PATH)/, \
 		push_swap.c utils.c checker.c initialization.c \
-		operations_swap.c)
+		operations_swap.c operations_push_pop.c)
 
 # Objects
 OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
