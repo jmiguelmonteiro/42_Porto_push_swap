@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_push_pop.c                              :+:      :+:    :+:   */
+/*   operations_basic.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 19:12:17 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/24 12:29:56 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*push(t_list **stack, t_node)
+bool	push(t_list **stack, t_content *content)
 {
-	t_list	*head;
-	t_list	*next;
+	t_list	*node;
 	
-	if (ft_lstsize(*stack) < 2)
-		return ;
+	node = ft_lstnew(content);
+	if (!node)
+	{
+		free_node(content);
+		return (free_stack(stack), false);
+	}
+	ft_lstadd_front(stack, node);
+	return (true);
+}
 
+t_content	*pop(t_list **stack)
+{
+	t_list		*head;
+	t_list		*next;
+	t_content	*content;
+	
+	if (ft_lstsize(*stack) < 1)
+		return (NULL);
 	head = *stack;
 	next = head->next;
-	
-	head->next = next->next;
-	next->next = head;
+	content = head->content;
 	*stack = next;
+	ft_lstdelone(head, NULL);
+	return (content);
 }
