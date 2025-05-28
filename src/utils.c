@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 15:29:58 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 19:31:57 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,28 @@ t_list	*ft_lstbeforelast(t_list *lst)
 		lst = lst->next;
 	}
 	return (before_last);
+}
+
+bool	is_sorted(t_list *stack)
+{
+	t_list	*head;
+
+	head = stack;
+	while (head && head->next)
+	{
+		if ((t_content *)(head->content).value  )
+		stack_a = stack_a->next;
+			ft_printf("%d ", content_a->value);
+		}
+		else
+			ft_printf(". ");
+		if (stack_b)
+		{
+			content_b = (t_content *)stack_b->content;
+			stack_b = stack_b->next;
+			ft_printf("%d\n", content_b->value);
+		}
+		else
+			ft_printf(".\n");
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:23:52 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 15:35:57 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:51:46 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void		rr(t_list **stack_a, t_list **stack_b);
 void		rra(t_list **stack_a, t_list **stack_b);
 void		rrb(t_list **stack_a, t_list **stack_b);
 void		rrr(t_list **stack_a, t_list **stack_b);
+
+void	operations_tests(t_list **stack_a, t_list **stack_b);
 
 #endif
