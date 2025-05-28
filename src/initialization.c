@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:55:13 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/24 11:39:41 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:31:12 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	init_stack(int argc, char **argv, t_list **stack_a)
 {
 	int			i;
 	t_content	*content;
-	
+
 	i = argc - 1;
 	while (i > 0)
 	{

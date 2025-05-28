@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 14:40:53 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:32:02 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	rotate(t_list **stack)
 {
 	t_list	*head;
 	t_list	*tail;
-	
+
 	if (ft_lstsize(*stack) < 2)
 		return ;
 	head = *stack;

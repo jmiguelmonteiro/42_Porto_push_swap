@@ -6,13 +6,13 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:19:35 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 17:25:24 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:34:02 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void check_arg_is_int(char *nptr)
+static void	check_arg_is_int(char *nptr)
 {
 	long	value;
 	int		signal;
@@ -40,7 +40,7 @@ static void check_arg_is_int(char *nptr)
 	}
 }
 
-static void check_arg_is_duplicate(int argc, char **argv)
+static void	check_arg_is_duplicate(int argc, char **argv)
 {
 	int		i;
 	int		j;
@@ -51,12 +51,12 @@ static void check_arg_is_duplicate(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]) )
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				ft_error();
 			j++;
 		}
 		i++;
-	}	
+	}
 }
 
 void	check_arguments(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 15:07:21 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:32:13 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	reverse_rotate(t_list **stack)
 	t_list	*head;
 	t_list	*tail;
 	t_list	*before_tail;
-	
+
 	if (ft_lstsize(*stack) < 2)
 		return ;
 	head = *stack;

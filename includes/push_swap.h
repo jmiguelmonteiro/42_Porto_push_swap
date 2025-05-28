@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:23:52 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 15:03:27 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:35:57 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,28 @@ typedef struct s_content
 	int	value;
 }	t_content;
 
-void	check_arguments(int argc, char **argv);
-void	ft_error(void);
+void		check_arguments(int argc, char **argv);
+void		ft_error(void);
 
-bool	init_stack(int argc, char **argv, t_list **stack_a);
-void	free_node(void *content);
-void	free_stack(t_list **stack);
-void	print_stack(t_list *stack);
-t_list	*ft_lstbeforelast(t_list *lst);
+bool		init_stack(int argc, char **argv, t_list **stack_a);
+void		free_node(void *content);
+void		free_stack(t_list **stack);
+void		print_stacks(t_list *stack_a, t_list *stack_b);
+t_list		*ft_lstbeforelast(t_list *lst);
 
 bool		push(t_list **stack, t_content *content);
 t_content	*pop(t_list **stack);
 
-void	sa(t_list **stack_a, t_list **stack_b);
-void	sb(t_list **stack_a, t_list **stack_b);
-void	ss(t_list **stack_a, t_list **stack_b);
-void	pa(t_list **stack_a, t_list **stack_b);
-void	pb(t_list **stack_a, t_list **stack_b);
-void	ra(t_list **stack_a, t_list **stack_b);
-void	rb(t_list **stack_a, t_list **stack_b);
-void	rr(t_list **stack_a, t_list **stack_b);
-void	rra(t_list **stack_a, t_list **stack_b);
-void	rrb(t_list **stack_a, t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
+void		sa(t_list **stack_a, t_list **stack_b);
+void		sb(t_list **stack_a, t_list **stack_b);
+void		ss(t_list **stack_a, t_list **stack_b);
+void		pa(t_list **stack_a, t_list **stack_b);
+void		pb(t_list **stack_a, t_list **stack_b);
+void		ra(t_list **stack_a, t_list **stack_b);
+void		rb(t_list **stack_a, t_list **stack_b);
+void		rr(t_list **stack_a, t_list **stack_b);
+void		rra(t_list **stack_a, t_list **stack_b);
+void		rrb(t_list **stack_a, t_list **stack_b);
+void		rrr(t_list **stack_a, t_list **stack_b);
 
 #endif
