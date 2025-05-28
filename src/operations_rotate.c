@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_swap.c                                  :+:      :+:    :+:   */
+/*   operations_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 14:38:40 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:40:53 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **stack)
+static void	rotate(t_list **stack)
 {
 	t_list	*head;
-	t_list	*next;
+	t_list	*tail;
 	
 	if (ft_lstsize(*stack) < 2)
 		return ;
 	head = *stack;
-	next = head->next;
-	head->next = next->next;
-	next->next = head;
-	*stack = next;
+	tail = ft_lstlast(*stack);
+	*stack = head->next;
+	head->next = NULL;
+	tail->next = head;
 }
 
-void	sa(t_list **stack_a, t_list **stack_b)
+void	ra(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_b;
-	swap(stack_a);
-	ft_putendl_fd("sa", 1);
+	rotate(stack_a);
+	ft_putendl_fd("ra", 1);
 }
 
-void	sb(t_list **stack_a, t_list **stack_b)
+void	rb(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_a;
-	swap(stack_b);
-	ft_putendl_fd("sb", 1);
+	rotate(stack_b);
+	ft_putendl_fd("rb", 1);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
-	ft_putendl_fd("ss", 1);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_putendl_fd("rr", 1);
 }

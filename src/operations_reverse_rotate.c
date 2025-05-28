@@ -1,48 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_swap.c                                  :+:      :+:    :+:   */
+/*   operations_reverse_rotate.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 14:38:40 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:07:21 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **stack)
+static void	reverse_rotate(t_list **stack)
 {
 	t_list	*head;
-	t_list	*next;
+	t_list	*tail;
+	t_list	*before_tail;
 	
 	if (ft_lstsize(*stack) < 2)
 		return ;
 	head = *stack;
-	next = head->next;
-	head->next = next->next;
-	next->next = head;
-	*stack = next;
+	tail = ft_lstlast(*stack);
+	before_tail = ft_lstbeforelast(*stack);
+	*stack = tail;
+	tail->next = head;
+	before_tail->next = NULL;
 }
 
-void	sa(t_list **stack_a, t_list **stack_b)
+void	rra(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_b;
-	swap(stack_a);
-	ft_putendl_fd("sa", 1);
+	reverse_rotate(stack_a);
+	ft_putendl_fd("rra", 1);
 }
 
-void	sb(t_list **stack_a, t_list **stack_b)
+void	rrb(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_a;
-	swap(stack_b);
-	ft_putendl_fd("sb", 1);
+	reverse_rotate(stack_b);
+	ft_putendl_fd("rrb", 1);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	rrr(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
-	ft_putendl_fd("ss", 1);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	ft_putendl_fd("rrr", 1);
 }

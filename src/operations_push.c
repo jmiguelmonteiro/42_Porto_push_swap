@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_swap.c                                  :+:      :+:    :+:   */
+/*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 18:10:29 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 14:38:40 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 12:42:45 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **stack)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*head;
-	t_list	*next;
-	
-	if (ft_lstsize(*stack) < 2)
+	t_list	*head_a;
+	t_list	*head_b;
+
+	ft_putendl_fd("pa", 1);
+	if (ft_lstsize(*stack_b) < 1)
 		return ;
-	head = *stack;
-	next = head->next;
-	head->next = next->next;
-	next->next = head;
-	*stack = next;
+	head_a = *stack_a;
+	head_b = *stack_b;
+	*stack_b = head_b->next;
+	head_b->next = head_a;
+	*stack_a = head_b;
 }
 
-void	sa(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
-	(void) stack_b;
-	swap(stack_a);
-	ft_putendl_fd("sa", 1);
-}
+	t_list	*head_a;
+	t_list	*head_b;
 
-void	sb(t_list **stack_a, t_list **stack_b)
-{
-	(void) stack_a;
-	swap(stack_b);
-	ft_putendl_fd("sb", 1);
-}
-
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
-	ft_putendl_fd("ss", 1);
+	ft_putendl_fd("pb", 1);
+	if (ft_lstsize(*stack_a) < 1)
+		return ;
+	head_b = *stack_b;
+	head_a = *stack_a;
+	*stack_a = head_a->next;
+	head_a->next = head_b;
+	*stack_b = head_a;
 }

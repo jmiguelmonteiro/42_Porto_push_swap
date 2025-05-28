@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/24 11:31:29 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:08:23 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,19 @@ void	print_stack(t_list *stack)
 		stack = stack->next;
 	}
 	ft_printf("\n");
+}
+
+t_list	*ft_lstbeforelast(t_list *lst)
+{
+	t_list	*before_last;
+	
+	before_last = NULL;
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+	{
+		before_last = lst;
+		lst = lst->next;
+	}
+	return (before_last);
 }
