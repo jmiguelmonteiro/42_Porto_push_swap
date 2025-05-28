@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 16:54:10 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 19:15:53 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 22:37:57 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	main(int argc, char **argv)
 	if (!init_stack(argc, argv, stack_a))
 		ft_error();
 
-	operations_tests(stack_a, stack_b);
+	if (is_sorted(stack_a))
+		ft_printf("Sorted!!!\n");
+		
+//	operations_tests(stack_a, stack_b);
 	
 	free_stack(stack_a);
 	free_stack(stack_b);

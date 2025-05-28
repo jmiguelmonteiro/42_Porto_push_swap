@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 18:37:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 19:31:57 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 22:34:39 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	print_stacks(t_list *stack_a, t_list *stack_b)
 		else
 			ft_printf(".\n");
 	}
-	ft_printf("- -\na b\n");
+	ft_printf("- -\na b\n\n");
 }
 
 t_list	*ft_lstbeforelast(t_list *lst)
@@ -77,19 +77,9 @@ bool	is_sorted(t_list *stack)
 	head = stack;
 	while (head && head->next)
 	{
-		if ((t_content *)(head->content).value  )
-		stack_a = stack_a->next;
-			ft_printf("%d ", content_a->value);
-		}
-		else
-			ft_printf(". ");
-		if (stack_b)
-		{
-			content_b = (t_content *)stack_b->content;
-			stack_b = stack_b->next;
-			ft_printf("%d\n", content_b->value);
-		}
-		else
-			ft_printf(".\n");
+		if (((t_content *)head->content)->value > ((t_content *)head->next->content)->value)
+			return (false);
+		head = head->next;
 	}
+	return (true);
 }

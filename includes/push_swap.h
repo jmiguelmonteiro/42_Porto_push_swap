@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:23:52 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/28 18:51:46 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 22:36:22 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		free_node(void *content);
 void		free_stack(t_list **stack);
 void		print_stacks(t_list *stack_a, t_list *stack_b);
 t_list		*ft_lstbeforelast(t_list *lst);
+bool		is_sorted(t_list *stack);
 
 bool		push(t_list **stack, t_content *content);
 t_content	*pop(t_list **stack);
@@ -45,6 +46,6 @@ void		rra(t_list **stack_a, t_list **stack_b);
 void		rrb(t_list **stack_a, t_list **stack_b);
 void		rrr(t_list **stack_a, t_list **stack_b);
 
-void	operations_tests(t_list **stack_a, t_list **stack_b);
+void		operations_tests(t_list **stack_a, t_list **stack_b);
 
 #endif
