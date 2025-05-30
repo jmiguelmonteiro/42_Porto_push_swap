@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 10:55:49 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/30 15:17:59 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/30 19:09:39 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ void	sort_stack(t_list **stack_a)
 
 void	sort_stack_simple(t_list **stack_a)
 {
-	t_list	*head;
-
-	head = *stack_a;
 	if (ft_lstsize(*stack_a) == 2)
 		sa(stack_a, NULL);
 	else
