@@ -41,3 +41,10 @@ t_content	*pop(t_list **stack)
 	ft_lstdelone(head, NULL);
 	return (content);
 }
+
+t_content	*peek(t_list *stack)
+{
+	if (ft_lstsize(stack) < 1)
+		return (NULL);
+	return (stack->content);
+}

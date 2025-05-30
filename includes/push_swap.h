@@ -19,6 +19,7 @@
 typedef struct s_content
 {
 	int	value;
+	int	index;
 }	t_content;
 
 void		check_arguments(int argc, char **argv);
@@ -28,11 +29,19 @@ bool		init_stack(int argc, char **argv, t_list **stack_a);
 void		free_node(void *content);
 void		free_stack(t_list **stack);
 void		print_stacks(t_list *stack_a, t_list *stack_b);
+void		print_stack(t_list *stack_a);
 t_list		*ft_lstbeforelast(t_list *lst);
-bool		is_sorted(t_list *stack);
+
+bool		is_stack_sorted(t_list *stack);
+void		sort_stack(t_list **stack);
+void		sort_stack_simple(t_list **stack);
+void		sort_stack_simple_3(t_list **stack_a);
+void		sort_stack_full(t_list **stack_a);
+void		sort_stack_radix(t_list **stack_a);
 
 bool		push(t_list **stack, t_content *content);
 t_content	*pop(t_list **stack);
+t_content	*peek(t_list *stack);
 
 void		sa(t_list **stack_a, t_list **stack_b);
 void		sb(t_list **stack_a, t_list **stack_b);
