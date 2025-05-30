@@ -20,7 +20,7 @@ bool	init_stack(int argc, char **argv, t_list **stack_a)
 	i = argc - 1;
 	while (i > 0)
 	{
-		content = ft_calloc(1, sizeof (t_content));
+		content = ft_calloc(1, sizeof (t_content *));
 		if (!content)
 			return (free_stack(stack_a), false);
 		content->value = ft_atoi(argv[i]);
