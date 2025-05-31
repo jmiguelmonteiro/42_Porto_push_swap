@@ -21,7 +21,7 @@ int	min_op_43(int a[4][3])
 	i = 0;
 	while (i < 4)
 	{
-		if (a[i][3] < a[op][3])
+		if (a[i][2] < a[op][2])
 			op = i;
 		i++;
 	}
