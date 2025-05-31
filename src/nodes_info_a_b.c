@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/31 20:27:36 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/31 20:32:38 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b)
 	set_index(stack_a);
 	set_index(stack_b);
 	set_target_a(stack_a, stack_b);
-	set_cost_a(stack_a, stack_b);
-	set_winner(stack_a);
+//	set_cost_a(stack_a, stack_b);
+//	set_winner(stack_a);
 }

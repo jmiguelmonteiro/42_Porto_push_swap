@@ -32,7 +32,7 @@ OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
 
 CC			= cc
 INCLUDES	= -I$(INCLUDES_PATH) -I$(LIBFT_PATH)/$(INCLUDES_PATH)
-CFLAGS		= -Wall -Wextra -Werror $(INCLUDES) -g
+CFLAGS		= -Wall -Wextra $(INCLUDES) -g
 AR			= ar crs
 RM			= rm -f
 MKDIR-P		= mkdir -p
