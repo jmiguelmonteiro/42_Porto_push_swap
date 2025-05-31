@@ -16,45 +16,53 @@
 # include <libft.h>
 # include <stdbool.h>
 
-typedef struct s_content
+typedef struct s_data
 {
-	int	value;
-	int	index;
-}	t_content;
+	int				value;
+	int				index;
+	bool			above;
+	int				push_cost;
+	bool			cheapest;
+	struct s_list	*target;
+}	t_data;
 
-void		check_arguments(int argc, char **argv);
-void		ft_error(void);
+void	check_arguments(int argc, char **argv);
+void	ft_error(void);
 
-bool		init_stack(int argc, char **argv, t_list **stack_a);
-void		free_node(void *content);
-void		free_stack(t_list **stack);
-void		print_stacks(t_list *stack_a, t_list *stack_b);
-void		print_stack(t_list *stack_a);
-t_list		*ft_lstbeforelast(t_list *lst);
+bool	init_stack(int argc, char **argv, t_list **stack_a);
+void	free_node(void *content);
+void	free_stack(t_list **stack);
+void	print_stacks(t_list *stack_a, t_list *stack_b);
+void	print_stack(t_list *stack_a);
+t_list	*ft_lstbeforelast(t_list *lst);
 
-bool		is_stack_sorted(t_list *stack);
-void		sort_stack(t_list **stack);
-void		sort_stack_simple(t_list **stack);
-void		sort_stack_simple_3(t_list **stack_a);
-void		sort_stack_full(t_list **stack_a);
-void		sort_stack_radix(t_list **stack_a);
+bool	is_stack_sorted(t_list *stack);
+void	sort_stack(t_list **stack);
+void	sort_stack_simple(t_list **stack);
+void	sort_stack_simple_3(t_list **stack_a);
+void	sort_stack_radix(t_list **stack_a, t_list **stack_b);
 
-bool		push(t_list **stack, t_content *content);
-t_content	*pop(t_list **stack);
-t_content	*peek(t_list *stack);
+void	sort_stack_turk(t_list **stack_a, t_list **stack_b);
+t_list	*stack_min_value(t_list *lst);
+t_list	*stack_max_value(t_list *lst);
+void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b);
 
-void		sa(t_list **stack_a, t_list **stack_b);
-void		sb(t_list **stack_a, t_list **stack_b);
-void		ss(t_list **stack_a, t_list **stack_b);
-void		pa(t_list **stack_a, t_list **stack_b);
-void		pb(t_list **stack_a, t_list **stack_b);
-void		ra(t_list **stack_a, t_list **stack_b);
-void		rb(t_list **stack_a, t_list **stack_b);
-void		rr(t_list **stack_a, t_list **stack_b);
-void		rra(t_list **stack_a, t_list **stack_b);
-void		rrb(t_list **stack_a, t_list **stack_b);
-void		rrr(t_list **stack_a, t_list **stack_b);
+bool	push(t_list **stack, t_data *content);
+t_data	*pop(t_list **stack);
+t_data	*peek(t_list *stack);
 
-void		operations_tests(t_list **stack_a, t_list **stack_b);
+void	sa(t_list **stack_a, t_list **stack_b);
+void	sb(t_list **stack_a, t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack_a, t_list **stack_b);
+void	rb(t_list **stack_a, t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rra(t_list **stack_a, t_list **stack_b);
+void	rrb(t_list **stack_a, t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+
+void	operations_tests(t_list **stack_a, t_list **stack_b);
 
 #endif
