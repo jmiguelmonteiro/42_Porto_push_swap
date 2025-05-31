@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-bool	push(t_list **stack, t_content *content)
+bool	push(t_list **stack, t_data *content)
 {
 	t_list	*node;
 
@@ -26,11 +26,11 @@ bool	push(t_list **stack, t_content *content)
 	return (true);
 }
 
-t_content	*pop(t_list **stack)
+t_data	*pop(t_list **stack)
 {
 	t_list		*head;
 	t_list		*next;
-	t_content	*content;
+	t_data	*content;
 
 	if (ft_lstsize(*stack) < 1)
 		return (NULL);
@@ -42,7 +42,7 @@ t_content	*pop(t_list **stack)
 	return (content);
 }
 
-t_content	*peek(t_list *stack)
+t_data	*peek(t_list *stack)
 {
 	if (ft_lstsize(stack) < 1)
 		return (NULL);

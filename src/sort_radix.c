@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/30 18:21:27 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:55:00 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,24 @@ void	populate_index(t_list *stack_a)
 		lst_in = stack_a;
 		while (lst_in)
 		{
-			if (((t_content *)lst_in->content)->value
-				< ((t_content *)lst_out->content)->value)
+			if (((t_data *)lst_in->content)->value
+				< ((t_data *)lst_out->content)->value)
 				i++;
 			lst_in = lst_in->next;
 		}
-		((t_content *)lst_out->content)->index = i;
+		((t_data *)lst_out->content)->index = i;
 		lst_out = lst_out->next;
 	}
 }
 
-void	sort_stack_radix(t_list **stack_a)
+void	sort_stack_radix(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 	int max_num;
 	int max_bits;
 	int i;
 	int j;
-	int num;
-	t_list	*stack_b;
 	
-	stack_b = NULL;
 	populate_index(*stack_a);
 	size = ft_lstsize(*stack_a);
 	max_num = size - 1;
@@ -56,18 +53,13 @@ void	sort_stack_radix(t_list **stack_a)
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < size)
-		{
-			num = peek(*stack_a)->index;
-			if (((num >> i) & 1) == 1)
+		while (j++ < size)
+			if ((((peek(*stack_a)->index) >> i) & 1) == 1)
 				ra(stack_a, NULL);
 			else
-				pb(stack_a, &stack_b);
-			j++;
-		}
-		while (ft_lstsize(stack_b) > 0)
-			pa(stack_a, &stack_b);
+				pb(stack_a, stack_b);
+		while (ft_lstsize(*stack_b) > 0)
+			pa(stack_a, stack_b);
 		i++;
 	}
-	free_stack(&stack_b);
 }

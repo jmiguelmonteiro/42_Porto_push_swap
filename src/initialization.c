@@ -15,12 +15,12 @@
 bool	init_stack(int argc, char **argv, t_list **stack_a)
 {
 	int			i;
-	t_content	*content;
+	t_data	*content;
 
 	i = argc - 1;
 	while (i > 0)
 	{
-		content = ft_calloc(1, sizeof (t_content *));
+		content = malloc(sizeof (t_data *));
 		if (!content)
 			return (free_stack(stack_a), false);
 		content->value = ft_atoi(argv[i]);
