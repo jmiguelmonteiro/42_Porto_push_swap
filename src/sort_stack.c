@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 10:55:49 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/31 16:55:00 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/31 18:38:17 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_stack(t_list **stack_a)
 		sort_stack_simple(stack_a);
 	else
 		sort_stack_turk(stack_a, &stack_b);
-	free_stack(&stack_b);	
+	free_stack(&stack_b);
 }
 
 void	sort_stack_simple(t_list **stack_a)

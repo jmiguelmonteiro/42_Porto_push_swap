@@ -12,6 +12,29 @@
 
 #include "push_swap.h"
 
+int	min_op_43(int a[4][3])
+{
+	int	op;
+	int i;
+
+	op = 0;
+	i = 0;
+	while (i < 4)
+	{
+		if (a[i][3] < a[op][3])
+			op = i;
+		i++;
+	}
+	return (op);
+}
+
+int	max_int(int a, int b)
+{
+	if (a >= b)
+		return (a);
+	return (b);
+}
+
 void	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 2);

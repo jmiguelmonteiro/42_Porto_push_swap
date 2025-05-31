@@ -6,18 +6,46 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/31 17:49:34 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/31 19:38:00 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	set_target_nodes_a(t_list *a, t_list *b)
+static void	set_cost_a(t_list *a, t_list *b)
+{
+	int	len_a;
+	int	len_b;
+	int	cost[4][3];
+
+	len_a = ft_lstsize(a);
+	len_b = ft_lstsize(b);
+	while (a)
+	{
+		cost[0][0] = ((t_data *)a->content)->index;
+		cost[1][0] = cost[0][0];
+		cost[2][0] = len_a - ((t_data *)a->content)->index;
+		cost[3][0] = cost[2][0];
+		cost[0][1] = ((t_data *)((t_data *)a->content)->target->content)->index;
+		cost[1][1] = len_b
+			- ((t_data *)((t_data *)a->content)->target->content)->index;
+		cost[2][1] = cost[0][1];
+		cost[3][1] = cost[1][1];
+		cost[0][2] = max_int(cost[0][0], cost[0][1]);
+		cost[1][2] = cost[1][0] + cost[1][1];
+		cost[2][2] = cost[2][0] + cost[2][1];
+		cost[3][2] = max_int(cost[3][0], cost[3][1]);
+		((t_data *)a->content)->cost = cost[min_op_43(cost)][2];
+		((t_data *)a->content)->op = min_op_43(cost);
+	}
+}
+
+static void	set_target_a(t_list *a, t_list *b)
 {
 	t_list	*target;
 	t_list	*hb;
 	long	best_match_value;
-	
+
 	while (a)
 	{
 		best_match_value = LONG_MIN;
@@ -35,28 +63,19 @@ static void	set_target_nodes_a(t_list *a, t_list *b)
 		if (best_match_value != LONG_MIN)
 			((t_data *)a->content)->target = target;
 		else
-		{
 			((t_data *)a->content)->target = stack_max_value(b);
-			ft_printf("Biggest value: %p\n", stack_max_value(b));
-		}
 		a = a->next;
 	}
 }
 
-static void	set_index_median(t_list *stack)
+static void	set_index(t_list *stack)
 {
 	int	index;
-	int	median;
 
 	index = 0;
-	median = ft_lstsize(stack) / 2;
 	while (stack)
 	{
 		((t_data *)stack->content)->index = index;
-		if (index < median)
-			((t_data *)stack->content)->above = true;
-		else
-			((t_data *)stack->content)->above = false;
 		stack = stack->next;
 		index++;
 	}
@@ -65,7 +84,7 @@ static void	set_index_median(t_list *stack)
 void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b)
 {
 	(void)stack_b;
-	set_index_median(stack_a);
-	set_index_median(stack_b);
-	set_target_nodes_a(stack_a, stack_b);
+	set_index(stack_a);
+	set_index(stack_b);
+	set_target_a(stack_a, stack_b);
 }

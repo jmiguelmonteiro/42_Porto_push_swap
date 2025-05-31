@@ -20,9 +20,8 @@ typedef struct s_data
 {
 	int				value;
 	int				index;
-	bool			above;
-	int				push_cost;
-	bool			cheapest;
+	int				cost;
+	int				op;
 	struct s_list	*target;
 }	t_data;
 
@@ -32,6 +31,7 @@ void	ft_error(void);
 bool	init_stack(int argc, char **argv, t_list **stack_a);
 void	free_node(void *content);
 void	free_stack(t_list **stack);
+int		max_int(int a, int b);
 void	print_stacks(t_list *stack_a, t_list *stack_b);
 void	print_stack(t_list *stack_a);
 t_list	*ft_lstbeforelast(t_list *lst);

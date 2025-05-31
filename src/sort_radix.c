@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/31 16:55:00 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/31 18:39:15 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	populate_index(t_list *stack_a)
 void	sort_stack_radix(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
-	int max_num;
-	int max_bits;
-	int i;
-	int j;
-	
+	int	max_num;
+	int	max_bits;
+	int	i;
+	int	j;
+
 	populate_index(*stack_a);
 	size = ft_lstsize(*stack_a);
 	max_num = size - 1;
@@ -56,8 +56,8 @@ void	sort_stack_radix(t_list **stack_a, t_list **stack_b)
 		while (j++ < size)
 			if ((((peek(*stack_a)->index) >> i) & 1) == 1)
 				ra(stack_a, NULL);
-			else
-				pb(stack_a, stack_b);
+		else
+			pb(stack_a, stack_b);
 		while (ft_lstsize(*stack_b) > 0)
 			pa(stack_a, stack_b);
 		i++;
