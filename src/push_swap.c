@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	check_arguments(argc, argv);
 	if (!init_stack(argc, argv, &stack_a))
 		ft_error();
+	print_stack(stack_a);
 	if (!is_stack_sorted(stack_a))
 		sort_stack(&stack_a);
 	free_stack(&stack_a);

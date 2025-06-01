@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:36:15 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/31 17:46:15 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/01 11:17:32 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ void	print_stack(t_list *stack_a)
 	while (stack_a)
 	{
 		content_a = (t_data *)stack_a->content;
-		ft_printf("i: %d p: %p v: %d t: %p\n", content_a->index, stack_a,
-			content_a->value, content_a->target);
+		ft_printf("i: %d ", content_a->index);
+		ft_printf("p: %p ", stack_a);
+		ft_printf("v: %d ", content_a->value);
+		ft_printf("t: %p ", content_a->target);
+		ft_printf("\n");
 		stack_a = stack_a->next;
 	}
 	ft_printf("\n");

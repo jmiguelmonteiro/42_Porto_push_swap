@@ -15,6 +15,7 @@
 
 # include <libft.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 typedef struct s_data
 {

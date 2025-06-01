@@ -6,13 +6,13 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/31 20:32:38 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/31 22:12:59 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	set_winner(t_list *stack)
+/* static void	set_winner(t_list *stack)
 {
 	long	winner_cost;
 	t_list	*winner;
@@ -87,7 +87,7 @@ static void	set_target_a(t_list *a, t_list *b)
 		a = a->next;
 	}
 }
-
+ */
 static void	set_index(t_list *stack)
 {
 	int	index;
@@ -103,9 +103,10 @@ static void	set_index(t_list *stack)
 
 void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b)
 {
+	(void)stack_b;
 	set_index(stack_a);
-	set_index(stack_b);
-	set_target_a(stack_a, stack_b);
+//	set_index(stack_b);
+//	set_target_a(stack_a, stack_b);
 //	set_cost_a(stack_a, stack_b);
 //	set_winner(stack_a);
 }
