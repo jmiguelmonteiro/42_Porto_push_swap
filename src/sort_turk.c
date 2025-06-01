@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/06/01 12:59:03 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/01 22:27:06 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,21 @@
 
 void	move_a_to_b(t_list **stack_a, t_list **stack_b)
 {
-	(void)stack_a;
+	t_list	*head;
+	t_data	*content;
+	
 	(void)stack_b;
+	head = *stack_a;
+	while (head)
+	{
+		content = head->content;
+		if (content->winner)
+			break;
+		head = head->next;
+	}
+	ft_printf("Winner value: %d\n", content->value);
+	if (content->cost == 0)
+		pb(stack_a, stack_b);
 }
 
 void	sort_stack_turk(t_list **stack_a, t_list **stack_b)
