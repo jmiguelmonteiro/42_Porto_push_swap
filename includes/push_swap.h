@@ -23,6 +23,8 @@ typedef struct s_data
 	int				index;
 	struct s_list	*target;
 	int				op;
+	int				n_a;
+	int				n_b;
 	int				cost;
 	bool			winner;
 }	t_data;

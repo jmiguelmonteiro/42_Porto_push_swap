@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:12:24 by josemigu          #+#    #+#             */
-/*   Updated: 2025/06/01 12:10:14 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/01 12:55:25 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	set_winner(t_list *stack)
 {
 	long	winner_cost;
 	t_list	*winner;
-	
+
 	winner_cost = ((t_data *)stack->content)->cost;
 	winner = stack;
 	while (stack)
@@ -55,6 +55,8 @@ static void	set_cost_a(t_list *a, t_list *b)
 		cost[2][2] = cost[2][0] + cost[2][1];
 		cost[3][2] = max_int(cost[3][0], cost[3][1]);
 		((t_data *)a->content)->op = min_op_43(cost);
+		((t_data *)a->content)->n_a = cost[min_op_43(cost)][0];
+		((t_data *)a->content)->n_b = cost[min_op_43(cost)][1];
 		((t_data *)a->content)->cost = cost[min_op_43(cost)][2];
 		a = a->next;
 	}
@@ -103,7 +105,6 @@ static void	set_index(t_list *stack)
 
 void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b)
 {
-	(void)stack_b;
 	set_index(stack_a);
 	set_index(stack_b);
 	set_target_a(stack_a, stack_b);

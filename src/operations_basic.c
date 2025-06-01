@@ -28,8 +28,8 @@ bool	push(t_list **stack, t_data *content)
 
 t_data	*pop(t_list **stack)
 {
-	t_list		*head;
-	t_list		*next;
+	t_list	*head;
+	t_list	*next;
 	t_data	*content;
 
 	if (ft_lstsize(*stack) < 1)
