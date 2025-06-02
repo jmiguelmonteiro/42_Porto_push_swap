@@ -47,13 +47,13 @@ static void	move_a_to_b(t_list **stack_a, t_list **stack_b)
 	while (n_a--)
 		if (op == 0 || op == 1)
 			ra(stack_a, stack_b);
-		else
-			rra(stack_a, stack_b);
+	else
+		rra(stack_a, stack_b);
 	while (n_b--)
 		if (op == 0 || op == 2)
 			rb(stack_a, stack_b);
-		else
-			rrb(stack_a, stack_b);
+	else
+		rrb(stack_a, stack_b);
 	pb(stack_a, stack_b);
 }
 
@@ -87,7 +87,7 @@ static void	move_min_to_top(t_list **stack_a, t_list **stack_b)
 	int		len;
 
 	len = ft_lstsize(*stack_a);
-	content =  stack_min_value(*stack_a)->content;
+	content = stack_min_value(*stack_a)->content;
 	up = content->index;
 	down = len - content->index;
 	if (up <= down)

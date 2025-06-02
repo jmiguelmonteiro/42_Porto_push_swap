@@ -24,8 +24,7 @@ SRCS = $(addprefix $(SRC_PATH)/, \
 		push_swap.c utils.c print_stack.c check_arguments.c initialization.c \
 		operations_basic.c operations_swap.c operations_push.c \
 		operations_rotate.c operations_reverse_rotate.c sort_stack.c \
-		sort_radix.c sort_turk.c nodes_info_a_b.c nodes_info_b_a.c \
-		tests.c)
+		sort_radix.c sort_turk.c nodes_info_a_b.c nodes_info_b_a.c )
 
 # Objects
 OBJS = $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS:.c=.o)))
