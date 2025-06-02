@@ -15,7 +15,7 @@
 int	min_op_43(int a[4][3])
 {
 	int	op;
-	int i;
+	int	i;
 
 	op = 0;
 	i = 0;

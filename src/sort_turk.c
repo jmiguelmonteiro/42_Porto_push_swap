@@ -19,19 +19,19 @@ static void	move_a_to_b(t_list **stack_a, t_list **stack_b)
 	int		op;
 	int		n_a;
 	int		n_b;
-	
+
 	(void)stack_b;
 	head = *stack_a;
 	while (head)
 	{
 		content = head->content;
 		if (content->winner)
-			break;
+			break ;
 		head = head->next;
 	}
 	op = content->op;
-	n_a = content->n_a; 
-	n_b = content->n_b; 
+	n_a = content->n_a;
+	n_b = content->n_b;
 	while (op == 0 && n_a && n_b)
 	{
 		rr(stack_a, stack_b);
@@ -59,7 +59,43 @@ static void	move_a_to_b(t_list **stack_a, t_list **stack_b)
 
 static void	move_b_to_a(t_list **stack_a, t_list **stack_b)
 {
+	int		len_a;
+	int		up;
+	int		down;
+	t_data	*content_a;
+	t_data	*content_b;
+
+	len_a = ft_lstsize(*stack_a);
+	content_b = (*stack_b)->content;
+	content_a = content_b->target->content;
+	up = content_a->index;
+	down = len_a - content_a->index;
+	if (up <= down)
+		while (up--)
+			ra(stack_a, stack_b);
+	else
+		while (down--)
+			rra(stack_a, stack_b);
 	pa(stack_a, stack_b);
+}
+
+static void	move_min_to_top(t_list **stack_a, t_list **stack_b)
+{
+	t_data	*content;
+	int		up;
+	int		down;
+	int		len;
+
+	len = ft_lstsize(*stack_a);
+	content =  stack_min_value(*stack_a)->content;
+	up = content->index;
+	down = len - content->index;
+	if (up <= down)
+		while (up--)
+			ra(stack_a, stack_b);
+	else
+		while (down--)
+			rra(stack_a, stack_b);
 }
 
 void	sort_stack_turk(t_list **stack_a, t_list **stack_b)
@@ -77,16 +113,11 @@ void	sort_stack_turk(t_list **stack_a, t_list **stack_b)
 		move_a_to_b(stack_a, stack_b);
 	}
 	sort_stack_simple_3(stack_a);
-	print_stack(*stack_a);
-	print_stack(*stack_b);
- 	while (*stack_b)
+	while (*stack_b)
 	{
 		fill_nodes_info_b_a(*stack_a, *stack_b);
-		print_stack(*stack_a);
-		print_stack(*stack_b);
-		getc(stdin);
 		move_b_to_a(stack_a, stack_b);
 	}
-	print_stack(*stack_a);
-	print_stack(*stack_b);
+	set_index(*stack_a);
+	move_min_to_top(stack_a, stack_b);
 }
