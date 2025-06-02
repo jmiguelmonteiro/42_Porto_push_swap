@@ -52,7 +52,7 @@ void	sort_stack_simple_3(t_list **stack_a)
 	t_list	*head;
 	int		num[3];
 
-	if (ft_lstsize(*stack_a) != 3)
+	if ((ft_lstsize(*stack_a) != 3) || is_stack_sorted(*stack_a))
 		return ;
 	head = *stack_a;
 	num[0] = ((t_data *)head->content)->value;

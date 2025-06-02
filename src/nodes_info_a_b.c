@@ -90,7 +90,7 @@ static void	set_target_a(t_list *a, t_list *b)
 	}
 }
 
-static void	set_index(t_list *stack)
+void	set_index(t_list *stack)
 {
 	int	index;
 
