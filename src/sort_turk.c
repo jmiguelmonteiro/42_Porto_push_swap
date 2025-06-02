@@ -79,9 +79,12 @@ void	sort_stack_turk(t_list **stack_a, t_list **stack_b)
 	sort_stack_simple_3(stack_a);
 	print_stack(*stack_a);
 	print_stack(*stack_b);
-	while (*stack_b)
+ 	while (*stack_b)
 	{
 		fill_nodes_info_b_a(*stack_a, *stack_b);
+		print_stack(*stack_a);
+		print_stack(*stack_b);
+		getc(stdin);
 		move_b_to_a(stack_a, stack_b);
 	}
 	print_stack(*stack_a);

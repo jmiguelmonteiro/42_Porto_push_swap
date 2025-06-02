@@ -50,7 +50,9 @@ void	sort_stack_radix(t_list **stack_a, t_list **stack_b);
 void	sort_stack_turk(t_list **stack_a, t_list **stack_b);
 t_list	*stack_min_value(t_list *lst);
 t_list	*stack_max_value(t_list *lst);
+void	set_index(t_list *stack);
 void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b);
+void	fill_nodes_info_b_a(t_list *stack_a, t_list *stack_b);
 
 bool	push(t_list **stack, t_data *content);
 t_data	*pop(t_list **stack);

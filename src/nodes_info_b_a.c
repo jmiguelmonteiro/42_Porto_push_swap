@@ -15,29 +15,25 @@
 static void	set_target_b(t_list *a, t_list *b)
 {
 	t_list	*target;
-	t_list	*hb;
+	t_list	*ha;
 	long	best_match_value;
 
-	while (a)
+	best_match_value = LONG_MAX;
+	ha = a;
+	while (ha)
 	{
-		best_match_value = LONG_MIN;
-		hb = b;
-		while (hb)
+		if (((t_data *)ha->content)->value > ((t_data *)b->content)->value
+			&& ((t_data *)ha->content)->value < best_match_value)
 		{
-			if (((t_data *)hb->content)->value < ((t_data *)a->content)->value
-				&& ((t_data *)hb->content)->value > best_match_value)
-			{
-				best_match_value = ((t_data *)hb->content)->value;
-				target = hb;
-			}
-			hb = hb->next;
+			best_match_value = ((t_data *)ha->content)->value;
+			target = ha;
 		}
-		if (best_match_value != LONG_MIN)
-			((t_data *)a->content)->target = target;
-		else
-			((t_data *)a->content)->target = stack_max_value(b);
-		a = a->next;
+		ha = ha->next;
 	}
+	if (best_match_value != LONG_MAX)
+		((t_data *)b->content)->target = target;
+	else
+		((t_data *)b->content)->target = stack_min_value(a);
 }
 
 void	fill_nodes_info_b_a(t_list *stack_a, t_list *stack_b)
