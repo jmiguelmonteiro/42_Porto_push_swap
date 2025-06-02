@@ -33,20 +33,16 @@ static void	set_winner(t_list *stack)
 
 static void	set_cost_a(t_list *a, t_list *b)
 {
-	int	len_a;
-	int	len_b;
 	int	cost[4][3];
 
-	len_a = ft_lstsize(a);
-	len_b = ft_lstsize(b);
 	while (a)
 	{
 		cost[0][0] = ((t_data *)a->content)->index;
 		cost[1][0] = cost[0][0];
-		cost[2][0] = len_a - ((t_data *)a->content)->index;
+		cost[2][0] = ft_lstsize(a) - ((t_data *)a->content)->index;
 		cost[3][0] = cost[2][0];
 		cost[0][1] = ((t_data *)((t_data *)a->content)->target->content)->index;
-		cost[1][1] = len_b
+		cost[1][1] = ft_lstsize(b)
 			- ((t_data *)((t_data *)a->content)->target->content)->index;
 		cost[2][1] = cost[0][1];
 		cost[3][1] = cost[1][1];
