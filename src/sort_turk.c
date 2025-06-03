@@ -12,15 +12,39 @@
 
 #include "push_swap.h"
 
+static void	prep_stacks(t_list **stack_a, t_list **stack_b,
+	t_operation operation)
+{
+	while (operation.op == 0 && operation.n_a && operation.n_b)
+	{
+		rr(stack_a, stack_b);
+		operation.n_a--;
+		operation.n_b--;
+	}
+	while (operation.op == 3 && operation.n_a && operation.n_b)
+	{
+		rrr(stack_a, stack_b);
+		operation.n_a--;
+		operation.n_b--;
+	}
+	while (operation.n_a--)
+		if (operation.op == 0 || operation.op == 1)
+			ra(stack_a, stack_b);
+	else
+		rra(stack_a, stack_b);
+	while (operation.n_b--)
+		if (operation.op == 0 || operation.op == 2)
+			rb(stack_a, stack_b);
+	else
+		rrb(stack_a, stack_b);
+}
+
 static void	move_a_to_b(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*head;
-	t_data	*content;
-	int		op;
-	int		n_a;
-	int		n_b;
+	t_list		*head;
+	t_data		*content;
+	t_operation	operation;
 
-	(void)stack_b;
 	head = *stack_a;
 	while (head)
 	{
@@ -29,31 +53,10 @@ static void	move_a_to_b(t_list **stack_a, t_list **stack_b)
 			break ;
 		head = head->next;
 	}
-	op = content->op;
-	n_a = content->n_a;
-	n_b = content->n_b;
-	while (op == 0 && n_a && n_b)
-	{
-		rr(stack_a, stack_b);
-		n_a--;
-		n_b--;
-	}
-	while (op == 3 && n_a && n_b)
-	{
-		rrr(stack_a, stack_b);
-		n_a--;
-		n_b--;
-	}
-	while (n_a--)
-		if (op == 0 || op == 1)
-			ra(stack_a, stack_b);
-	else
-		rra(stack_a, stack_b);
-	while (n_b--)
-		if (op == 0 || op == 2)
-			rb(stack_a, stack_b);
-	else
-		rrb(stack_a, stack_b);
+	operation.op = content->op;
+	operation.n_a = content->n_a;
+	operation.n_b = content->n_b;
+	prep_stacks(stack_a, stack_b, operation);
 	pb(stack_a, stack_b);
 }
 

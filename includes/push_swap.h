@@ -29,11 +29,18 @@ typedef struct s_data
 	bool			winner;
 }	t_data;
 
+typedef struct s_operation
+{
+	int				op;
+	int				n_a;
+	int				n_b;
+}	t_operation;
+
 void	check_arguments(int argc, char **argv);
 void	ft_error(void);
 
 bool	init_stack(int argc, char **argv, t_list **stack_a);
-void	free_node(void *content);
+void	free(void *content);
 void	free_stack(t_list **stack);
 int		max_int(int a, int b);
 int		min_op_43(int a[4][3]);

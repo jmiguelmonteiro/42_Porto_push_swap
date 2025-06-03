@@ -19,7 +19,7 @@ bool	push(t_list **stack, t_data *content)
 	node = ft_lstnew(content);
 	if (!node)
 	{
-		free_node(content);
+		free(content);
 		return (free_stack(stack), false);
 	}
 	ft_lstadd_front(stack, node);
@@ -47,4 +47,46 @@ t_data	*peek(t_list *stack)
 	if (ft_lstsize(stack) < 1)
 		return (NULL);
 	return (stack->content);
+}
+
+t_list	*stack_max_value(t_list *lst)
+{
+	int		max_value;
+	t_list	*max_ptr;
+
+	if (ft_lstsize(lst) < 1)
+		return (NULL);
+	max_value = ((t_data *)lst->content)->value;
+	max_ptr = lst;
+	while (lst)
+	{
+		if (max_value < ((t_data *)lst->content)->value)
+		{
+			max_value = ((t_data *)lst->content)->value;
+			max_ptr = lst;
+		}
+		lst = lst->next;
+	}
+	return (max_ptr);
+}
+
+t_list	*stack_min_value(t_list *lst)
+{
+	int		min_value;
+	t_list	*min_ptr;
+
+	if (ft_lstsize(lst) < 1)
+		return (NULL);
+	min_value = ((t_data *)lst->content)->value;
+	min_ptr = lst;
+	while (lst)
+	{
+		if (min_value > ((t_data *)lst->content)->value)
+		{
+			min_value = ((t_data *)lst->content)->value;
+			min_ptr = lst;
+		}
+		lst = lst->next;
+	}
+	return (min_ptr);
 }

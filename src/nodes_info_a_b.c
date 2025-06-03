@@ -31,10 +31,8 @@ static void	set_winner(t_list *stack)
 	((t_data *)winner->content)->winner = true;
 }
 
-static void	set_cost_a(t_list *a, t_list *b)
+static void	set_cost_a(t_list *a, t_list *b, int len_a, int len_b)
 {
-	int	len_a;
-	int	len_b;
 	int	cost[4][3];
 
 	len_a = ft_lstsize(a);
@@ -109,6 +107,6 @@ void	fill_nodes_info_a_b(t_list *stack_a, t_list *stack_b)
 	set_index(stack_a);
 	set_index(stack_b);
 	set_target_a(stack_a, stack_b);
-	set_cost_a(stack_a, stack_b);
+	set_cost_a(stack_a, stack_b, 0, 0);
 	set_winner(stack_a);
 }
