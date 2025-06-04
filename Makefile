@@ -101,3 +101,10 @@ test:
 	$(CHECKER)
 	@echo "Instructions count: "
 	@./push_swap $(ARG) | wc -l
+
+mytest:
+	@$(eval ARG = $(shell seq -1000 1000 | shuf -n $(size)))
+	@echo "Checker result: "
+	@valgrind ./push_swap $(ARG) | ./checker $(ARG)
+	@echo "Instructions count: "
+	@./push_swap $(ARG) | wc -l

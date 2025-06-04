@@ -17,7 +17,7 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	t_list	*head_a;
 	t_list	*head_b;
 
-	ft_putendl_fd("pa", 1);
+	ft_putstr_fd("pa\n", 1);
 	if (ft_lstsize(*stack_b) < 1)
 		return ;
 	head_a = *stack_a;
@@ -32,7 +32,7 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	t_list	*head_a;
 	t_list	*head_b;
 
-	ft_putendl_fd("pb", 1);
+	ft_putstr_fd("pb\n", 1);
 	if (ft_lstsize(*stack_a) < 1)
 		return ;
 	head_b = *stack_b;

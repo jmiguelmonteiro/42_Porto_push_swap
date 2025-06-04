@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 14:57:50 by josemigu          #+#    #+#             */
-/*   Updated: 2025/06/04 15:34:15 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:51:49 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ static void	process_input(t_list **stack_a, t_list **stack_b, char *input)
 	else if (ft_strncmp(input, "rrr\n", 4) == 0)
 		rrr(stack_a, stack_b);
 	else
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		free(input);
 		ft_error();
+	}
 }
 
 void	get_input(t_list **stack_a, t_list **stack_b)
@@ -50,5 +55,7 @@ void	get_input(t_list **stack_a, t_list **stack_b)
 		if (!input)
 			break ;
 		process_input(stack_a, stack_b, input);
+		free(input);
 	}
+	free(input);
 }

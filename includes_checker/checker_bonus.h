@@ -24,6 +24,7 @@ typedef struct s_data
 
 void	check_arguments(int argc, char **argv);
 void	ft_error(void);
+void	ft_error2(void);
 bool	init_stack(int argc, char **argv, t_list **stack_a);
 void	free_stack(t_list **stack);
 void	print_stack(t_list *stack_a);

@@ -32,19 +32,19 @@ void	rra(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_b;
 	reverse_rotate(stack_a);
-	ft_putendl_fd("rra", 1);
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_a;
 	reverse_rotate(stack_b);
-	ft_putendl_fd("rrb", 1);
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_putendl_fd("rrr", 1);
+	ft_putstr_fd("rrr\n", 1);
 }

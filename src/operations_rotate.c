@@ -30,19 +30,19 @@ void	ra(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_b;
 	rotate(stack_a);
-	ft_putendl_fd("ra", 1);
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_list **stack_a, t_list **stack_b)
 {
 	(void) stack_a;
 	rotate(stack_b);
-	ft_putendl_fd("rb", 1);
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_putendl_fd("rr", 1);
+	ft_putstr_fd("rr\n", 1);
 }
