@@ -35,7 +35,6 @@ void	get_input(t_list **stack_a, t_list **stack_b);
 bool	push(t_list **stack, t_data *content);
 t_data	*pop(t_list **stack);
 t_data	*peek(t_list *stack);
-
 void	sa(t_list **stack_a, t_list **stack_b);
 void	sb(t_list **stack_a, t_list **stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);

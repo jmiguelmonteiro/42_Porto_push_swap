@@ -51,7 +51,6 @@ void	sort_stack(t_list **stack);
 void	sort_stack_simple(t_list **stack);
 void	sort_stack_simple_3(t_list **stack_a);
 void	sort_stack_radix(t_list **stack_a, t_list **stack_b);
-
 void	sort_stack_turk(t_list **stack_a, t_list **stack_b);
 t_list	*stack_min_value(t_list *lst);
 t_list	*stack_max_value(t_list *lst);
@@ -62,7 +61,6 @@ void	fill_nodes_info_b_a(t_list *stack_a, t_list *stack_b);
 bool	push(t_list **stack, t_data *content);
 t_data	*pop(t_list **stack);
 t_data	*peek(t_list *stack);
-
 void	sa(t_list **stack_a, t_list **stack_b);
 void	sb(t_list **stack_a, t_list **stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
