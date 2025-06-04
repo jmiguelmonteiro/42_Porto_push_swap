@@ -6,13 +6,13 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 14:57:50 by josemigu          #+#    #+#             */
-/*   Updated: 2025/06/04 17:51:49 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 18:05:27 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-static void	process_input(t_list **stack_a, t_list **stack_b, char *input)
+static bool	process_input(t_list **stack_a, t_list **stack_b, char *input)
 {
 	if (ft_strncmp(input, "sa\n", 3) == 0)
 		sa(stack_a, stack_b);
@@ -37,12 +37,8 @@ static void	process_input(t_list **stack_a, t_list **stack_b, char *input)
 	else if (ft_strncmp(input, "rrr\n", 4) == 0)
 		rrr(stack_a, stack_b);
 	else
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
-		free(input);
-		ft_error();
-	}
+		return (false);
+	return (true);
 }
 
 void	get_input(t_list **stack_a, t_list **stack_b)
@@ -54,7 +50,13 @@ void	get_input(t_list **stack_a, t_list **stack_b)
 		input = get_next_line(0);
 		if (!input)
 			break ;
-		process_input(stack_a, stack_b, input);
+		if (!process_input(stack_a, stack_b, input))
+		{
+			free_stack(stack_a);
+			free_stack(stack_b);
+			free(input);
+			ft_error();
+		}
 		free(input);
 	}
 	free(input);
